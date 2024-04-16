@@ -1,0 +1,44 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
+
+class RegisterController extends Controller
+{
+    public function index() 
+    {
+        return view('register.index');
+    }
+
+    public function store(Request $request) 
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed'
+        ], 
+        [
+            'name.required' => 'Поле имя обязательно для заполнения.',
+            'name.max' => 'Поле имя должно содержать не более :max символов.',
+            'email.required' => 'Поле email обязательно для заполнения.',
+            'email.email' => 'Поле email должно быть действительным адресом электронной почты.',
+            'email.unique' => 'Пользователь с таким email уже существует.',
+            'password.required' => 'Поле пароль обязательно для заполнения.',
+            'password.min' => 'Поле пароль должно содержать не менее :min символов.',
+            'password.confirmed' => 'Подтверждение пароля не совпадает с паролем.',
+        ]
+        );
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect('/')->with('success', 'Регистрация прошла успешно');
+    }
+}
