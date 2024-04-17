@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Password;
@@ -11,7 +12,7 @@ class ResetPasswordController extends Controller
 {
    public function create(Request $request)
    {
-      return view('reset-password.index', ['request' => $request]);
+      return view('auth.reset-password.index', ['request' => $request]);
    }
 
    public function store(Request $request)
