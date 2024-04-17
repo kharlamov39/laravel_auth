@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -39,6 +40,10 @@ class RegisterController extends Controller
             'password' => $request->password,
         ]);
 
-        return redirect()->route('login.index');
+        Auth::login($user);
+
+        event(new Registered($user));
+
+        return redirect()->route('home');
     }
 }
