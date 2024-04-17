@@ -31,8 +31,10 @@ Route::get('/admin', function () {
 })->middleware(['auth', 'verified'])->name('admin');
 
 
-Route::get('/register', [RegisterController::class, 'index'])->middleware('guest')->name('register.index');
-Route::post('/register', [RegisterController::class, 'store'])->middleware('guest')->name('register.store');
+Route::prefix('/register')->middleware('guest')->group( function() {
+    Route::get('', [RegisterController::class, 'index'])->name('register.index');
+    Route::post('', [RegisterController::class, 'store'])->name('register.store');
+});
 
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login.index');
 Route::post('/login', [LoginController::class, 'store'])->middleware('guest')->name('login.store');
