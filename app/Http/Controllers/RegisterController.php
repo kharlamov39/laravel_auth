@@ -19,7 +19,7 @@ class RegisterController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed'
+            'password' => 'required|string|min:4|confirmed'
         ], 
         [
             'name.required' => 'Поле имя обязательно для заполнения.',
@@ -36,9 +36,9 @@ class RegisterController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => $request->password,
         ]);
 
-        return redirect('/')->with('success', 'Регистрация прошла успешно');
+        return redirect()->route('login.index');
     }
 }
