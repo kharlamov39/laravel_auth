@@ -3,10 +3,6 @@
         Главная
     </x-slot>
 
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
+    <h2>Главная страница</h2>
  
 </x-layout>

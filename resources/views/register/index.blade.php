@@ -24,8 +24,12 @@
                 <input type="password" name="password_confirmation" id="password_confirmation" required>
             </div>
         
-            <div style="margin-top: 20px;">
+            <div style="margin: 20px 0px;">
                 <button type="submit">Зарегистрироваться</button>
+            </div>
+
+            <div>
+                <span>Уже зарегистрированы?</span> <a style="color: blue;" href="{{ route('login.index') }}">Войти</a>
             </div>
         </form>
         @if ($errors->any())

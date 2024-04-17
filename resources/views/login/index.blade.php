@@ -20,8 +20,19 @@
                 @enderror
             </div>
 
-            <div style="margin-top: 20px;">
+            <div>
+                <label for="remember">
+                    Запомнить меня
+                </label>
+                <input type="checkbox" name="remember" id="remember">
+            </div>
+
+            
+            <div style="margin: 20px 0px;">
                 <button type="submit">Войти</button>
+            </div>
+            <div>
+                <a href="{{ route('forgot-password.create') }}">Забыл пароль</a>
             </div>
         </form>
     </div>

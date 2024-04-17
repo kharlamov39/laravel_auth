@@ -21,11 +21,24 @@
     <body class="antialiased">
         <div class="wrp">
             <div style="display: flex; gap: 50px; color: blue; margin-bottom: 100px;">
-                <a href="{{ route('register.index') }}">Регистрация</a>
-                <a href="{{ route('login.index') }}">Войти</a>
-                <a href="{{ route('login.logout') }}">Выйти</a>
                 <a href="/">Главная</a>
                 <a href="{{ route('admin') }}">Админка</a>
+                @guest
+                    <a href="{{ route('register.index') }}">Регистрация</a>
+                    <a href="{{ route('login.index') }}">Войти</a>
+                @endguest
+                @auth
+                    <form action="{{ route('login.logout') }}">
+                        @csrf
+                        <input class="submit" type="submit" value="Выйти"/>
+                    </form>
+                @endauth
             </div>
+
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
 
                 

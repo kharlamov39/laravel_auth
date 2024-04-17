@@ -21,7 +21,7 @@ class LoginController extends Controller
             'password:required|string|min:4'
         ]);
 
-        if(!Auth::attempt($request->only('email', 'password'))) {
+        if(!Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
             return back()->withErrors([
                 'email' => 'Пользователь не найден',
             ])->withInput();
