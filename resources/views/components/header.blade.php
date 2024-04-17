@@ -36,9 +36,7 @@
             </div>
 
             @if (session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
+                <span style="color: green;">{{ session('success') }}</span>
             @endif
 
                 
