@@ -29,7 +29,7 @@ class GroupController extends Controller
         $group->section = $request->section;
         $group->sort = $request->sort;
         $group->active = $request->has('active') ? 1 : 0;
-        $group->save();
+        $group->save(); 
 
         return redirect()->route('admin.groups.index');
     }
