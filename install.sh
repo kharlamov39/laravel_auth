@@ -8,5 +8,5 @@ sudo docker compose exec php-cli composer update
 echo 'Папка vendor установлена'
 sudo chmod 777 -R .
 echo 'Установили права на проект'
-sudo docker compose exec node npm install && echo 'Зависимости npm установлены успешно' && npm run dev
-echo 'Запуск Vite'
+sudo docker compose exec node npm install && echo 'Зависимости npm установлены успешно'
+
