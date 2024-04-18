@@ -1,6 +1,5 @@
 #!/bin/sh
 set -e
-sudo chmod 775 -R .
 echo 'Установили права на проект'
 cp -f .env.example .env
 echo 'Файл .env готов'
@@ -8,3 +7,6 @@ sudo docker compose up -d
 echo 'Контейнеры запустились'
 sudo docker compose exec php-cli composer update
 echo 'Папка vendor установлена'
+sudo chmod 777 -R .
+sudo docker compose exec node npm install
+sudo docker compose exec node npm run dev
