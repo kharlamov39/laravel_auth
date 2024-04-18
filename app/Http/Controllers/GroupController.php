@@ -10,12 +10,12 @@ class GroupController extends Controller
     public function index() 
     {
         $groups = Group::orderBy('sort')->get();
-        return view('groups.index', ['groups' => $groups]);
+        return view('admin.groups.index', ['groups' => $groups]);
     }
 
     public function create()
     {
-        return view('groups.create');
+        return view('admin.groups.create');
     }
 
     public function store(Request $request)
@@ -31,13 +31,13 @@ class GroupController extends Controller
         $group->active = $request->has('active') ? 1 : 0;
         $group->save();
 
-        return redirect()->route('groups.index');
+        return redirect()->route('admin.groups.index');
     }
 
     public function edit($id)
     {
         $group = Group::findOrFail($id);
-        return view('group.edit', ['group' => $group]);
+        return view('admin.groups.edit', ['group' => $group]);
     }
 
     public function update(Request $request, $id)
@@ -54,7 +54,7 @@ class GroupController extends Controller
         $group->active = $request->has('active') ? 1 : 0;
         $group->save();
 
-        return redirect()->route('groups.index');
+        return redirect()->route('admin.groups.index');
     }
 
     public function delete($id)
@@ -62,13 +62,13 @@ class GroupController extends Controller
         $group = Group::findOrFail($id);
         $group->delete();
 
-        return redirect()->route('groups.index');
+        return redirect()->route('admin.groups.index');
     }
 
     public function search(Request $request)
     {
         $s = $request->s;
         $groups = Group::where('section', 'LIKE', '%' . $s . '%')->get();
-        return view('groups.search', ['groups' => $groups, 's' => $s]);
+        return view('admin.groups.search', ['groups' => $groups, 's' => $s]);
     }
 }

@@ -11,6 +11,9 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 
+use App\Http\Controllers\GroupController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,3 +52,15 @@ Route::post('/reset-password', [ResetPasswordController::class, 'store'])->name(
 Route::get('/email/verify', [VerifyEmailController::class, 'index'])->middleware('auth')->name('verification.notice');
 Route::post('/email/verify', [VerifyEmailController::class, 'send'])->middleware('auth')->name('verification.send');
 Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, 'verify'])->middleware(['auth', 'signed'])->name('verification.verify');
+
+
+/* Маршруты для категорий блюд */
+Route::prefix('/admin/groups')->middleware('auth')->group( function() {
+    Route::get('', [GroupController::class, 'index'])->name('admin.groups.index');
+    Route::get('/create', [GroupController::class, 'create'])->name('admin.groups.create');
+    Route::post('/create', [GroupController::class, 'store'])->name('admin.groups.store');
+    Route::delete('/{id}', [GroupController::class, 'delete'])->name('admin.groups.delete');
+    Route::get('/edit/{id}', [GroupController::class, 'edit'])->name('admin.groups.edit');
+    Route::put('/{id}', [GroupController::class, 'update'])->name('admin.groups.update');
+    Route::get('/search', [GroupController::class, 'search'])->name('admin.groups.search');
+});
