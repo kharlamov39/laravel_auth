@@ -11,19 +11,19 @@
 		<link id="pagestyle" href="{{ asset('css/material-dashboard.css?v=3.1.0') }}" rel="stylesheet" />
 
 		<!-- Icons -->
-		<link href="{{ asset('css/nucleo-icons.css') }}" rel="stylesheet" />
-		<link href="{{ asset('css/nucleo-svg.css') }}" rel="stylesheet" />
+		<link href="{{ asset('admin/css/nucleo-icons.css') }}" rel="stylesheet" />
+		<link href="{{ asset('admin/css/nucleo-svg.css') }}" rel="stylesheet" />
 
 		<!-- Font Awesome Icons -->
 		<script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 
 		<!-- CSS Files -->
-		<link id="pagestyle" href="{{ asset('css/material-dashboard.css') }}" rel="stylesheet" />
-		<link id="pagestyle" href="{{ asset('css/style.css') }}" rel="stylesheet" />
+		<link id="pagestyle" href="{{ asset('admin/css/material-dashboard.css') }}" rel="stylesheet" />
+		<link id="pagestyle" href="{{ asset('admin/css/style.css') }}" rel="stylesheet" />
 
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('admin/css/style.css') }}">
         @vite(['resourses/css/app.css'])
     </head>
     

@@ -132,28 +132,28 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script src="{{ asset('js/core/popper.min.js') }}"></script>
-<script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
-<script src="{{ asset('js/plugins/perfect-scrollbar.min.js') }}"></script>
-<script src="{{ asset('js/plugins/chartjs.min.js') }}"></script>
-<script src="{{ asset('js/plugins/datatables.js') }}"></script>
-<script src="{{ asset('js/plugins/countup.min.js') }}"></script>
-<script src="{{ asset('js/plugins/Chart.extension.js') }}"></script>
-<script src="{{ asset('js/plugins/bootstrap-notify.js') }}"></script>
-<script src="{{ asset('js/plugins/quill.min.js') }}"></script>
+<script src="{{ asset('admin/js/core/popper.min.js') }}"></script>
+<script src="{{ asset('admin/js/core/bootstrap.min.js') }}"></script>
+<script src="{{ asset('admin/js/plugins/perfect-scrollbar.min.js') }}"></script>
+<script src="{{ asset('admin/js/plugins/chartjs.min.js') }}"></script>
+<script src="{{ asset('admin/js/plugins/datatables.js') }}"></script>
+<script src="{{ asset('admin/js/plugins/countup.min.js') }}"></script>
+<script src="{{ asset('admin/js/plugins/Chart.extension.js') }}"></script>
+<script src="{{ asset('admin/js/plugins/bootstrap-notify.js') }}"></script>
+<script src="{{ asset('admin/js/plugins/quill.min.js') }}"></script>
 <script async defer src="https://buttons.github.io/buttons.js"></script>
-<script src="{{ asset('js/material-dashboard.js') }}"></script>
-<script src="{{ asset('js/material-dashboard.min.js?v=3.1.0') }}"></script>
-<script src="{{ asset('js/plugins/photoswipe.min.js') }}"></script>
-<script src="{{ asset('js/plugins/photoswipe-ui-default.min.js') }}"></script>
-<script src="{{ asset('js/multipleFiles.js') }}"></script>
-<script src="{{ asset('js/modalDelete.js') }}"></script>
-<script src="{{ asset('js/files.js') }}"></script>
-<script src="{{ asset('js/plugins/dragula/dragula.min.js') }}"></script>
-<script src="{{ asset('js/plugins/jkanban/jkanban.js') }}"></script>
-<script src="{{ asset('js/chart.js') }}"></script>
-<script src="{{ asset('js/photoswipe.js') }}"></script>
-<script src="{{ asset('js/choice.js') }}"></script>
+<script src="{{ asset('admin/js/material-dashboard.js') }}"></script>
+<script src="{{ asset('admin/js/material-dashboard.min.js?v=3.1.0') }}"></script>
+<script src="{{ asset('admin/js/plugins/photoswipe.min.js') }}"></script>
+<script src="{{ asset('admin/js/plugins/photoswipe-ui-default.min.js') }}"></script>
+<script src="{{ asset('admin/js/multipleFiles.js') }}"></script>
+<script src="{{ asset('admin/js/modalDelete.js') }}"></script>
+<script src="{{ asset('admin/js/files.js') }}"></script>
+<script src="{{ asset('admin/js/plugins/dragula/dragula.min.js') }}"></script>
+<script src="{{ asset('admin/js/plugins/jkanban/jkanban.js') }}"></script>
+<script src="{{ asset('admin/js/chart.js') }}"></script>
+<script src="{{ asset('admin/js/photoswipe.js') }}"></script>
+<script src="{{ asset('admin/js/choice.js') }}"></script>
 
 <script>
 var win = navigator.platform.indexOf('Win') > -1;
