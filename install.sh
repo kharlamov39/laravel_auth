@@ -8,5 +8,5 @@ echo 'Контейнеры запустились'
 sudo docker compose exec php-cli composer update
 echo 'Папка vendor установлена'
 sudo chmod 777 -R .
-sudo docker compose exec node npm install
-sudo docker compose exec node npm run dev
+sudo docker compose exec node npm install && echo 'Зависимости npm установлены успешно' && sudo docker compose exec node npm run dev
+
