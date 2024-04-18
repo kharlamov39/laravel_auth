@@ -6,9 +6,10 @@ document.addEventListener("DOMContentLoaded", function() {
       link.addEventListener('click', function(event) {
         event.preventDefault(); // Отменяем стандартное поведение перехода по ссылке
         // Обработчик клика по кнопке подтверждения
+        let deleteForm = link.querySelector('form');
+        console.log(deleteForm);
         document.getElementById('confirm-delete').addEventListener('click', function() {
-          var deleteUrl = link.getAttribute('href');
-          window.location.href = deleteUrl;
+          deleteForm.submit();
         });
       });
     });

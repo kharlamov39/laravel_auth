@@ -22,7 +22,7 @@
                         Сортировка: {{ $item->sort }} <br>
                         Активность: {{ $item->active ? 'Да' : 'Нет' }}
                     </div>
-                    <form action="{{ route('categories.delete', $item->id) }}" method="POST">
+                    <form action="{{ route('admin.groups.delete', $item->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <input type="submit" value="Удалить">

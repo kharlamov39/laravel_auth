@@ -72,8 +72,13 @@
                               <a href="{{ route('admin.groups.edit', $item->id) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Редактировать">
                                 <i class="material-icons text-secondary position-relative text-lg">drive_file_rename_outline</i>
                               </a>
-                              <a href="{{ route('admin.groups.delete', $item->id) }}" data-bs-original-title="Удалить" class="delete-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                              <a href="" data-bs-original-title="Удалить" class="delete-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 <i class="material-icons text-secondary position-relative text-lg">delete</i>
+                                <form style="display: none;" action="{{ route('admin.groups.delete', $item->id) }}" method="POST">
+                                  @csrf
+                                  @method('DELETE')
+                                  <input type="submit">
+                                </form>
                               </a>
                             </td>
                           </tr>
