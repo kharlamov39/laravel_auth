@@ -31,7 +31,7 @@
                   <div class="dataTable-top">
                     
 
-                    <form class="dataTable-search" action="{{ route('admin.groups.search') }}" method="GET">
+                    <form class="dataTable-search" action="" method="GET">
                       <input class="dataTable-input" placeholder="Search..." type="text" name="s" value="{{ $s }}">
                       <input type="submit" value="Поиск">
                     </form>

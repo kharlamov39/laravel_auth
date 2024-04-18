@@ -62,5 +62,4 @@ Route::prefix('/admin/groups')->middleware('auth')->group( function() {
     Route::delete('/{id}', [GroupController::class, 'delete'])->name('admin.groups.delete');
     Route::get('/edit/{id}', [GroupController::class, 'edit'])->name('admin.groups.edit');
     Route::put('/{id}', [GroupController::class, 'update'])->name('admin.groups.update');
-    Route::get('/search', [GroupController::class, 'search'])->name('admin.groups.search');
 });

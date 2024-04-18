@@ -7,10 +7,11 @@ use App\Models\Group;
 
 class GroupController extends Controller
 {
-    public function index() 
+    public function index(Request $request) 
     {
-        $groups = Group::orderBy('sort')->get();
-        return view('admin.groups.index', ['groups' => $groups]);
+        $s = $request->s;
+        $groups = Group::where('section', 'LIKE', '%' . $s . '%')->orderBy('sort')->get();
+        return view('admin.groups.index', ['groups' => $groups, 's' => $s]);
     }
 
     public function create()
@@ -63,12 +64,5 @@ class GroupController extends Controller
         $group->delete();
 
         return redirect()->route('admin.groups.index');
-    }
-
-    public function search(Request $request)
-    {
-        $s = $request->s;
-        $groups = Group::where('section', 'LIKE', '%' . $s . '%')->orderBy('sort')->get();
-        return view('admin.groups.index', ['groups' => $groups, 's' => $s]);
     }
 }
