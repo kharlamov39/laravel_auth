@@ -1,7 +1,7 @@
 #!/bin/sh
 cp -f .env.example .env
 echo 'Файл .env готов'
-sudo docker compose up
+sudo docker compose up -d
 echo 'Контейнеры запустились'
 sudo docker compose exec php-cli bash
 echo 'Вход в контейнер php-cli'
