@@ -31,9 +31,10 @@
                   <div class="dataTable-top">
                     
 
-                    <div class="dataTable-search">
-                      <input class="dataTable-input" placeholder="Search..." type="text">
-                    </div>
+                    <form class="dataTable-search" action="{{ route('admin.groups.search') }}" method="GET">
+                      <input class="dataTable-input" placeholder="Search..." type="text" name="s" value="{{ $s }}">
+                      <input type="submit" value="Поиск">
+                    </form>
 
                   </div>
 

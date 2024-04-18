@@ -68,7 +68,7 @@ class GroupController extends Controller
     public function search(Request $request)
     {
         $s = $request->s;
-        $groups = Group::where('section', 'LIKE', '%' . $s . '%')->get();
-        return view('admin.groups.search', ['groups' => $groups, 's' => $s]);
+        $groups = Group::where('section', 'LIKE', '%' . $s . '%')->orderBy('sort')->get();
+        return view('admin.groups.index', ['groups' => $groups, 's' => $s]);
     }
 }
