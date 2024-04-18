@@ -1,6 +1,5 @@
 #!/bin/sh
 set -e
-echo 'Установили права на проект'
 cp -f .env.example .env
 echo 'Файл .env готов'
 sudo docker compose up -d
