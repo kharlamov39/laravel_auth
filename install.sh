@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 cp -f .env.example .env
 echo 'Файл .env готов'
 sudo docker compose up -d
