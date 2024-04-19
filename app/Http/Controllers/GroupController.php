@@ -33,10 +33,10 @@ class GroupController extends Controller
         ]);
 
         $group = new Group;
-        $group->section = $request->section;
-        $group->sort = $request->sort;
-        $group->active = $request->has('active') ? 1 : 0;
-        $group->save(); 
+        $data = $request->only(['section', 'sort']);
+        $data['active'] = $request->has('active') ? 1 : 0;
+
+        $group->fill($data)->save(); 
 
         return redirect()->route('admin.groups.index');
     }
@@ -56,10 +56,10 @@ class GroupController extends Controller
             'sort' => 'required|numeric'
         ]);
 
-        $group->section = $request->section;
-        $group->sort = $request->sort;
-        $group->active = $request->has('active') ? 1 : 0;
-        $group->save();
+        $data = $request->only(['section', 'sort']);
+        $data['active'] = $request->has('active') ? 1 : 0;
+
+        $group->fill($data)->save(); 
 
         return redirect()->route('admin.groups.index');
     }

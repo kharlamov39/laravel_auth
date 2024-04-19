@@ -12,6 +12,10 @@ class Dish extends Model
 
     protected $table = 'dishes';
 
+    protected $fillable = [
+        'name', 'description', 'price', 'weight', 'weight_unit_id', 'amount', 'amount_unit_id', 'group_id', 'active', 'spicy', 'sort', 'img'
+    ];
+
     public function group() 
     {
         return $this->belongsTo(Group::class);

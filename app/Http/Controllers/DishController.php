@@ -35,19 +35,13 @@ class DishController extends Controller
         ]);
 
         $dish = new Dish;
-        $dish->name = $request->name;
-        $dish->description = $request->description;
-        $dish->price = $request->price;
-        $dish->weight = $request->weight;
-        $dish->weight_unit_id = $request->weight_unit_id;
-        $dish->amount = $request->amount;
-        $dish->amount_unit_id = $request->amount_unit_id;
-        $dish->group_id = $request->group_id;
-        $dish->active = $request->has('active') ? 1 : 0;
-        $dish->spicy = $request->has('spicy') ? 1 : 0;
-        $dish->sort = $request->sort;
-        $dish->img = '/';
-        $dish->save(); 
+        $data = $request->only(['name', 'description', 'price', 'weight', 'weight_unit_id', 'amount', 'amount_unit_id', 'group_id', 'sort']);
+        $data['active'] = $request->has('active') ? 1 : 0;
+        $dish['spicy'] = $request->has('spicy') ? 1 : 0;
+        $dish['sort'] = $request->sort;
+        $dish['img'] = '/';
+
+        $dish->fill($data)->save(); 
 
         return redirect()->route('admin.dishes.index');
     }
@@ -71,19 +65,14 @@ class DishController extends Controller
             'sort' => ['required', 'numeric'],
         ]);
 
-        $dish->name = $request->name;
-        $dish->description = $request->description;
-        $dish->price = $request->price;
-        $dish->weight = $request->weight;
-        $dish->weight_unit_id = $request->weight_unit_id;
-        $dish->amount = $request->amount;
-        $dish->amount_unit_id = $request->amount_unit_id;
-        $dish->group_id = $request->group_id;
-        $dish->active = $request->has('active') ? 1 : 0;
-        $dish->spicy = $request->has('spicy') ? 1 : 0;
-        $dish->sort = $request->sort;
-        $dish->img = '/';
-        $dish->save(); 
+        $data = $request->only(['name', 'description', 'price', 'weight', 'weight_unit_id', 'amount', 'amount_unit_id', 'group_id', 'sort']);
+        $data['active'] = $request->has('active') ? 1 : 0;
+        $dish['spicy'] = $request->has('spicy') ? 1 : 0;
+        $dish['sort'] = $request->sort;
+        $dish['img'] = '/';
+
+
+        $dish->fill($data)->save(); 
 
         return redirect()->route('admin.dishes.index');
     }
