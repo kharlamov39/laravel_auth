@@ -12,8 +12,10 @@ class DishController extends Controller
     public function index(Request $request) 
     {
         $s = $request->s;
-        $dishes = Dish::where('name', 'LIKE', '%' . $s . '%')->orderBy('sort')->get();
-        return view('admin.dishes.index', ['dishes' => $dishes, 's' => $s]);
+        $perPage = $request->input('perPage', 10);
+        $dishes = Dish::where('name', 'LIKE', '%' . $s . '%')->orderBy('sort')->paginate($perPage);
+        $dishes->appends(['perPage' => $perPage]);
+        return view('admin.dishes.index', ['dishes' => $dishes, 's' => $s, 'perPage' => $perPage]);
     }
 
     public function create()

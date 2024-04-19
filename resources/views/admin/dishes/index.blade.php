@@ -26,14 +26,23 @@
                 <div class="table-responsive">
                   <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
                     <div class="dataTable-top">
-                      <div class="dataTable-dropdown">
+                      <div class="dataTable-dropdown d-flex gap-2">
                        
                         <span>Выводить на странице элементов: </span>
+                        <form action="{{ route('admin.dishes.index') }}" method="get">
+                          <select name="perPage" onchange="this.form.submit()" style="width: 70px;">
+                              <option value="5" {{ $perPage == 5 ? 'selected' : '' }}>5</option>
+                              <option value="10" {{ $perPage == 10 ? 'selected' : '' }}>10</option>
+                              <option value="20" {{ $perPage == 20 ? 'selected' : '' }}>20</option>
+                              <option value="30" {{ $perPage == 30 ? 'selected' : '' }}>30</option>
+                              <!-- Другие варианты -->
+                          </select>
+                        </form>
                         
                       </div>
                       
                       
-                      <div class="dataTable-search d-flex gap-2">
+                      <div class="dataTable-search d-flex gap-2 align-items-center">
                         @if(!empty($s))
                             <a href="{{ route('admin.dishes.index') }}">Очистить поиск</a>
                         @endif 
@@ -111,8 +120,13 @@
                             
                         </tbody>
                       </table>
-  
-                           
+
+                      <div class="dataTable-wrapper mt-4">
+                        <div class="dataTable-bottom">
+                          {{ $dishes->links('vendor.pagination.default') }}
+                        </div>
+                      </div>
+    
   
                     </div>
                   </div>

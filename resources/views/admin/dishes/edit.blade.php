@@ -138,7 +138,7 @@
     
                                 <div class="button-row d-flex mt-0 mt-md-4">
                                     <button class="btn bg-gradient-light mb-0 js-btn-prev" type="button" title="Prev">Назад</button>
-                                    <button class="btn bg-gradient-success ms-auto mb-0" type="submit" title="Send">Добавить блюдо</button>
+                                    <button class="btn bg-gradient-success ms-auto mb-0" type="submit" title="Send">Изменить блюдо</button>
                                 </div>
 
                             </div>

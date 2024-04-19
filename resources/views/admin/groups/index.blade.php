@@ -30,7 +30,9 @@
                 <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
                   <div class="dataTable-top">
                     
-
+                    @if(!empty($s))
+                      <a href="{{ route('admin.groups.index') }}">Очистить поиск</a>
+                    @endif 
                     <form class="dataTable-search" action="" method="GET">
                       <input class="dataTable-input" placeholder="Search..." type="text" name="s" value="{{ $s }}">
                       <input type="submit" value="Поиск">
@@ -86,6 +88,7 @@
                         @endforeach
                       </tbody>
                     </table>
+
                   </div>
                 </div>
 
