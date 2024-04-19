@@ -59,7 +59,9 @@
                                 <h6 class="ms-3 my-auto">{{$item->section}}</h6>
                               </div>
                             </td>
-                            <td class="text-sm">?</td>
+                            <td class="text-sm">
+                              {{ $item->dish_count }}
+                            </td>
                             <td class="text-sm">{{$item->sort}}</td>
                             <td class="text-sm">
                               @if ($item->active)

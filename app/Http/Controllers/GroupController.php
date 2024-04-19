@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Group;
+use App\Models\Dish;
 
 class GroupController extends Controller
 {
@@ -11,6 +12,11 @@ class GroupController extends Controller
     {
         $s = $request->s;
         $groups = Group::where('section', 'LIKE', '%' . $s . '%')->orderBy('sort')->get();
+        foreach ($groups as $group) {
+            $group->dish_count = Dish::where('group_id', $group->id)->count();
+        }
+
+
         return view('admin.groups.index', ['groups' => $groups, 's' => $s]);
     }
 
