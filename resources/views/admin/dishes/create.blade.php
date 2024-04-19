@@ -22,7 +22,7 @@
                     </div>
     
                     <div class="card-body">
-                        <form class="multisteps-form__form dropzone" style="height: 391px;"  method="POST" action="{{ route('admin.dishes.store') }}" >
+                        <form class="multisteps-form__form dropzone" style="height: 391px;"  method="POST" action="{{ route('admin.dishes.store') }}" enctype="multipart/form-data">
                         @csrf
                         <!-- hidden -->
     
@@ -61,6 +61,11 @@
                             <div class="multisteps-form__panel pt-3 border-radius-xl bg-white" data-animation="FadeIn">
                                 <h5 class="font-weight-bolder">Фотографии</h5>
                                 <div class="multisteps-form__content">
+                                    <div style="display: flex; gap: 10px; align-items: center;" >
+                                        <label for="file1" style="display: block;" class="btn bg-gradient-warning my-0">Загрузить обложку</label>
+                                        <input type="file" name="img" id="file1" style="display: none;" accept="image/*">
+                                        <img class="avatar avatar-sm me-3 border-radius-lg" id="image1" src="" alt="" style="display: none;">
+                                    </div>
                                     <div class="button-row d-flex mt-0 mt-md-4">
                                         <button class="btn bg-gradient-light mb-0 js-btn-prev" type="button" title="Prev">Назад</button>
                                         <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="button" title="Next">Вперед</button>

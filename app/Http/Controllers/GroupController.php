@@ -15,8 +15,6 @@ class GroupController extends Controller
         foreach ($groups as $group) {
             $group->dish_count = Dish::where('group_id', $group->id)->count();
         }
-
-
         return view('admin.groups.index', ['groups' => $groups, 's' => $s]);
     }
 

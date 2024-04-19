@@ -75,7 +75,7 @@
                                 <tr>
                                     <td>
                                         <a href="" class="d-flex">
-                                        <img class="w-10 ms-3" src="" alt="yohji">
+                                        <img class="w-10 ms-3" src="{{ asset($dish->img) }}" alt="yohji">
                                         <h6 class="ms-3 my-auto">{{ $dish->name }}</h6>
                                         </a>
                                     </td>

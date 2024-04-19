@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Dish;
 use App\Models\Group;
 use App\Models\Unit;
+use Illuminate\Support\Facades\Storage;
 
 class DishController extends Controller
 {
@@ -32,14 +33,20 @@ class DishController extends Controller
            'description' => ['string'],
            'price' => ['required', 'numeric'],
            'sort' => ['required', 'numeric'],
+           'img' => ['image']
         ]);
 
         $dish = new Dish;
         $data = $request->only(['name', 'description', 'price', 'weight', 'weight_unit_id', 'amount', 'amount_unit_id', 'group_id', 'sort']);
         $data['active'] = $request->has('active') ? 1 : 0;
-        $dish['spicy'] = $request->has('spicy') ? 1 : 0;
-        $dish['sort'] = $request->sort;
-        $dish['img'] = '/';
+        $data['spicy'] = $request->has('spicy') ? 1 : 0;
+        $data['sort'] = $request->sort;
+        $data['img'] = '/';
+
+        if($request->hasFile('img')) {
+            $imagePath = $request->file('img')->store('dishes', 'public');
+            $data['img'] = Storage::url($imagePath);
+        }
 
         $dish->fill($data)->save(); 
 
@@ -67,9 +74,9 @@ class DishController extends Controller
 
         $data = $request->only(['name', 'description', 'price', 'weight', 'weight_unit_id', 'amount', 'amount_unit_id', 'group_id', 'sort']);
         $data['active'] = $request->has('active') ? 1 : 0;
-        $dish['spicy'] = $request->has('spicy') ? 1 : 0;
-        $dish['sort'] = $request->sort;
-        $dish['img'] = '/';
+        $data['spicy'] = $request->has('spicy') ? 1 : 0;
+        $data['sort'] = $request->sort;
+        $data['img'] = '/';
 
 
         $dish->fill($data)->save(); 
