@@ -12,6 +12,7 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\DishController;
 
 
 /*
@@ -62,4 +63,14 @@ Route::prefix('/admin/groups')->middleware('auth')->group( function() {
     Route::delete('/{id}', [GroupController::class, 'delete'])->name('admin.groups.delete');
     Route::get('/edit/{id}', [GroupController::class, 'edit'])->name('admin.groups.edit');
     Route::put('/{id}', [GroupController::class, 'update'])->name('admin.groups.update');
+});
+
+/* Маршруты для блюд */
+Route::prefix('/admin/dishes')->middleware('auth')->group( function() {
+    Route::get('', [DishController::class, 'index'])->name('admin.dishes.index');
+    Route::get('/create', [DishController::class, 'create'])->name('admin.dishes.create');
+    Route::post('/create', [DishController::class, 'store'])->name('admin.dishes.store');
+    Route::delete('/{id}', [DishController::class, 'delete'])->name('admin.dishes.delete');
+    Route::get('/edit/{id}', [DishController::class, 'edit'])->name('admin.dishes.edit');
+    Route::put('/{id}', [DishController::class, 'update'])->name('admin.dishes.update');
 });

@@ -57,6 +57,8 @@
 <script src="{{ asset('admin/js/chart.js') }}"></script>
 <script src="{{ asset('admin/js/photoswipe.js') }}"></script>
 <script src="{{ asset('admin/js/choice.js') }}"></script>
+<script src="{{ asset('admin/js/plugins/multistep-form.js')}}"></script>
+<script src="{{ asset('admin/js/plugins/choises.min.js') }}"></script>
 
 <script>
 var win = navigator.platform.indexOf('Win') > -1;
