@@ -29,7 +29,7 @@ class DishController extends Controller
            'name' => ['required', 'string'],
            'description' => ['string'],
            'price' => ['required', 'numeric'],
-           'sort' => ['numeric'],
+           'sort' => ['required', 'numeric'],
         ]);
 
         $dish = new Dish;

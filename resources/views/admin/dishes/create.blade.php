@@ -30,16 +30,23 @@
                                 <h5 class="font-weight-bolder">Информация о блюде</h5>
                                 <div class="multisteps-form__content">
     
-                                    <div class="input-group  input-group-static my-3 ">
+                                    <div class="input-group  input-group-static my-3 {{ old('name') ? 'is-filled' : '' }}">
                                         <label class="form-label">Название</label>
-                                        <input type="text" class="form-control" name="name" value="">
+                                        <input type="text" class="form-control" name="name" value="{{ old('name') }}" >
                                     </div>
-                                    <div class="input-group  input-group-static my-3">
-                                        <textarea name="description" class="form-control" placeholder="Описание"></textarea>
+                                    @error('name')
+                                        <p style="color: red">{{ $message }}</p>
+                                    @enderror
+                                    <div class="input-group  input-group-static my-3 {{ old('description') ? 'is-filled' : '' }}">
+                                        <textarea name="description" class="form-control" placeholder="Описание">{{ old('description') }}</textarea>
                                     </div>
+                                    @error('description')
+                                        <p style="color: red">{{ $message }}</p>
+                                    @enderror
                                     <div class="input-group my-3 input-group-static"  >
                                         <label for="exampleFormControlSelect1" class="ms-0">Категория</label>
                                         <select class="form-control" id="exampleFormControlSelect1" name="group_id">
+                                            <option value="">Выбрать категорию</option>
                                             @foreach ($groups as $group)
                                                 <option value="{{ $group->id }}"> {{ $group->section }} </option>
                                             @endforeach
@@ -54,29 +61,27 @@
                             <div class="multisteps-form__panel pt-3 border-radius-xl bg-white" data-animation="FadeIn">
                                 <h5 class="font-weight-bolder">Фотографии</h5>
                                 <div class="multisteps-form__content">
-                                    
-                                    
-                                    
-    
                                     <div class="button-row d-flex mt-0 mt-md-4">
                                         <button class="btn bg-gradient-light mb-0 js-btn-prev" type="button" title="Prev">Назад</button>
                                         <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="button" title="Next">Вперед</button>
                                     </div>
                                 </div>
-                                
                             </div>
     
                             <div class="multisteps-form__panel pt-3 border-radius-xl bg-white" data-animation="FadeIn">
                                 <h5 class="font-weight-bolder">Характеристики</h5>
                                 <div class="multisteps-form__content">
-                                    <div class="input-group input-group-static my-3 ">
+                                    <div class="input-group input-group-static my-3 {{ old('price') ? 'is-filled' : '' }}">
                                         <label class="form-label">Стоимость</label>
-                                        <input type="number" class="form-control" name="price" value="">
+                                        <input type="number" class="form-control" name="price" value="{{ old('price') }}" >
                                     </div>
+                                    @error('price')
+                                        <p style="color: red">{{ $message }}</p>
+                                    @enderror
                                     <div style="display: flex; align-items: center;">
-                                        <div class="input-group input-group-static my-3 ">
+                                        <div class="input-group input-group-static my-3 {{ old('weight') ? 'is-filled' : '' }}">
                                             <label class="form-label">Вес</label>
-                                            <input type="number" class="form-control" name="weight" value="">
+                                            <input type="number" class="form-control" name="weight" value="{{ old('weight') }}">
                                         </div>
                                         <div class="input-group my-3 input-group-static" >
                                             <select class="form-control" id="exampleFormControlSelect1" name="weight_unit_id">
@@ -88,9 +93,9 @@
                                     </div>
     
                                     <div style="display: flex; align-items: center;">
-                                        <div class="input-group input-group-static my-3 ">
+                                        <div class="input-group input-group-static my-3 {{ old('amount') ? 'is-filled' : '' }}">
                                             <label class="form-label">Количество</label>
-                                            <input type="number" class="form-control" name="amount" value="">
+                                            <input type="number" class="form-control" name="amount" value="{{ old('amount') }}">
                                         </div>
                                         <div class="input-group my-3 input-group-static " >
                                             <select class="form-control" id="exampleFormControlSelect1" name="amount_unit_id">
@@ -116,22 +121,24 @@
                             <div class="multisteps-form__panel pt-3 border-radius-xl bg-white h-100" data-animation="FadeIn">
                                 <h5 class="font-weight-bolder">Настройки вывода</h5>
                                 <div class="multisteps-form__content">
-                                    <div class="input-group input-group-static my-3 ">
+                                    <div class="input-group input-group-static my-3 {{ old('sort') ? 'is-filled' : '' }}">
                                         <label class="form-label">Сортировка</label>
-                                        <input type="number" class="form-control" name="sort" value="" >
+                                        <input type="number" class="form-control" name="sort" value="{{ old('sort') }}" >
                                     </div>
+                                    @error('sort')
+                                        <p style="color: red">{{ $message }}</p>
+                                    @enderror
                                     <div class="form-check px-0">
                                         <input class="form-check-input" type="checkbox" id="fcustomCheck1" name="active" checked>            
                                         <label class="custom-control-label" for="customCheck1">Активность</label>
                                     </div>                
                                 </div>        
-                                
-                                
     
                                 <div class="button-row d-flex mt-0 mt-md-4">
                                     <button class="btn bg-gradient-light mb-0 js-btn-prev" type="button" title="Prev">Назад</button>
                                     <button class="btn bg-gradient-success ms-auto mb-0" type="submit" title="Send">Добавить блюдо</button>
                                 </div>
+
                             </div>
                         </form>
     
