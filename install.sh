@@ -11,5 +11,5 @@ echo 'Контейнеры запустились'
 sudo docker compose exec php-cli composer update
 echo 'Папка vendor установлена'
 sudo chmod 777 -R .
-nohup sh -c "xdg-open http://localhost:8080/ > /dev/null" &&
+# nohup sh -c "xdg-open http://localhost:8080/ > /dev/null" &&
 sudo docker compose exec node npm install && echo 'Зависимости npm установлены успешно' && sudo docker compose exec node npm run dev
