@@ -10,14 +10,20 @@
                     @csrf
                     @method('PUT')
                     <h2>Изменить категорию</h2>
-                    <div class="input-group input-group-outline my-3 is-filled">
+                    <div class="input-group input-group-outline my-3 {{ $group->section ? 'is-filled' : ''}} ">
                         <label class="form-label">Название</label>
                         <input type="text" class="form-control" name="section" value="{{ $group->section }}" required>
                     </div>
-                    <div class="input-group input-group-outline my-3 is-filled">
+                    @error('section')
+                        <p style="color: red">{{ $message }}</p>
+                    @enderror
+                    <div class="input-group input-group-outline my-3 {{ $group->sort ? 'is-filled' : ''}}">
                         <label class="form-label">Сортировка</label>
                         <input type="number" class="form-control" name="sort" value="{{ $group->sort }}" required >
                     </div>
+                    @error('sort')
+                        <p style="color: red">{{ $message }}</p>
+                    @enderror
                     <div class="form-check px-0">
                         <input class="form-check-input" type="checkbox" id="fcustomCheck1" name="active" {{ $group->active ? 'checked' : '' }} >
                         <label class="custom-control-label" for="customCheck1">Активность</label>

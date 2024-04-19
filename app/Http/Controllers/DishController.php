@@ -52,8 +52,10 @@ class DishController extends Controller
 
     public function edit($id)
     {
+        $groups = Group::all();
+        $units = Unit::all();
         $dish = Dish::findOrFail($id);
-        return view('admin.dishes.edit', ['dish' => $dish]);
+        return view('admin.dishes.edit', compact('groups', 'units', 'dish'));
     }
 
     public function update(Request $request, $id)
@@ -61,9 +63,25 @@ class DishController extends Controller
         $dish = Dish::findOrFail($id);
 
         $request->validate([
-            
+            'name' => ['required', 'string'],
+            'description' => ['string'],
+            'price' => ['required', 'numeric'],
+            'sort' => ['required', 'numeric'],
         ]);
 
+        $dish->name = $request->name;
+        $dish->description = $request->description;
+        $dish->price = $request->price;
+        $dish->weight = $request->weight;
+        $dish->weight_unit_id = $request->weight_unit_id;
+        $dish->amount = $request->amount;
+        $dish->amount_unit_id = $request->amount_unit_id;
+        $dish->group_id = $request->group_id;
+        $dish->active = $request->has('active') ? 1 : 0;
+        $dish->spicy = $request->has('spicy') ? 1 : 0;
+        $dish->sort = $request->sort;
+        $dish->img = '/';
+        $dish->save(); 
 
         return redirect()->route('admin.dishes.index');
     }
