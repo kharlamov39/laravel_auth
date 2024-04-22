@@ -22,10 +22,10 @@
                     </div>
     
                     <div class="card-body">
-                        <form class="multisteps-form__form dropzone" style="height: 391px;"  method="POST" action="{{ route('admin.dishes.store') }}" enctype="multipart/form-data">
+                        <form class="multisteps-form__form dropzone" id="store_dish" style="height: 391px;"  method="POST" action="{{ route('admin.dishes.store') }}" enctype="multipart/form-data">
                         @csrf
                         <!-- hidden -->
-    
+                            <input type="hidden" name="hidden-file" class="hidden-file" value="" >
                             <div class="multisteps-form__panel pt-3 border-radius-xl bg-white js-active" data-animation="FadeIn">
                                 <h5 class="font-weight-bolder">Информация о блюде</h5>
                                 <div class="multisteps-form__content">
@@ -66,6 +66,23 @@
                                         <input type="file" name="img" id="file1" style="display: none;" accept="image/*">
                                         <img class="avatar avatar-sm me-3 border-radius-lg" id="image1" src="" alt="" style="display: none;">
                                     </div>
+
+
+                                    <div style="display: flex; gap: 10px; align-items: center;" class="mt-4">
+                                        <div class="upload__box">
+                                           <div class="upload__btn-box">
+                                               <label class="upload__btn btn bg-gradient-warning my-0">
+                                                   Загрузить фото
+                                               <input type="file" multiple data-max_length="20" class="upload__inputfile" id="fileInput" name="files[]" accept="image/*">
+                                               </label> 
+                                           </div>
+                                           <div class="upload__img-wrap">
+                                               
+                                           </div>
+                                       </div>       
+                                   </div>    
+
+
                                     <div class="button-row d-flex mt-0 mt-md-4">
                                         <button class="btn bg-gradient-light mb-0 js-btn-prev" type="button" title="Prev">Назад</button>
                                         <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="button" title="Next">Вперед</button>

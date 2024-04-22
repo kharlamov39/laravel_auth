@@ -73,4 +73,5 @@ Route::prefix('/admin/dishes')->middleware('auth')->group( function() {
     Route::delete('/{id}', [DishController::class, 'delete'])->name('admin.dishes.delete');
     Route::get('/edit/{id}', [DishController::class, 'edit'])->name('admin.dishes.edit');
     Route::put('/{id}', [DishController::class, 'update'])->name('admin.dishes.update');
+    Route::post('/images', [DishController::class, 'uploadImages'])->name('admin.dishes.upload');
 });

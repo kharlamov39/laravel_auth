@@ -96,8 +96,38 @@ if (key === 13) { // код клавиши Enter
     searchButton.click();
 }
 });
-
 </script>
+
+<script>
+    fileInput.addEventListener('change', () => {
+        uploadFiles();
+    })
+
+    function uploadFiles() {
+        var files = document.getElementById('fileInput').files;
+        var token = document.getElementById('store_dish').querySelector('input[name="_token"]').value;
+        var formData = new FormData();
+
+        for (var i = 0; i < files.length; i++) {
+            formData.append('files[]', files[i]);
+            console.log(files[i])
+        }
+
+        formData.append('_token', token);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/admin/dishes/images', true);
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                console.log('Files uploaded successfully.');
+            } else {
+                console.log('Error uploading files.');
+            }
+        };
+        xhr.send(formData);
+    }
+</script>
+
 </body>
 </html>
 

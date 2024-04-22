@@ -78,6 +78,10 @@ class DishController extends Controller
         $data['sort'] = $request->sort;
         $data['img'] = '/';
 
+        if($request->hasFile('img')) {
+            $imagePath = $request->file('img')->store('dishes', 'public');
+            $data['img'] = Storage::url($imagePath);
+        }
 
         $dish->fill($data)->save(); 
 
@@ -90,5 +94,21 @@ class DishController extends Controller
         $dish->delete();
 
         return redirect()->route('admin.dishes.index');
+    }
+
+    public function uploadImages(Request $request) 
+    {
+        $paths = [];
+    if ($request->hasFile('files')) {
+        foreach ($request->file('files') as $image) {
+            $path = $image->store('images', 'public');
+            $paths[] = Storage::url($path);
+        }
+    }
+
+    // Сохраните пути к изображениям в базе данных или сессии, например:
+    session()->put('uploaded_images', $paths);
+
+    return response()->json(['message' => 'Images uploaded successfully']);
     }
 }
