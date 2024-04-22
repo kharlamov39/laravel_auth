@@ -99,16 +99,11 @@ class DishController extends Controller
     public function uploadImages(Request $request) 
     {
         $paths = [];
-    if ($request->hasFile('files')) {
-        foreach ($request->file('files') as $image) {
-            $path = $image->store('images', 'public');
-            $paths[] = Storage::url($path);
+        if ($request->hasFile('files')) {
+            foreach ($request->file('files') as $image) {
+                $path = $image->store('images', 'public');
+                $paths[] = Storage::url($path);
+            }
         }
-    }
-
-    // Сохраните пути к изображениям в базе данных или сессии, например:
-    session()->put('uploaded_images', $paths);
-
-    return response()->json(['message' => 'Images uploaded successfully']);
     }
 }
