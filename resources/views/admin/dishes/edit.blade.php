@@ -29,7 +29,7 @@
                         @php
                             $hiddenImages = json_encode(unserialize($dish->files));
                         @endphp
-                            <input type="hidden" name="hidden-file" id="hidden-file" class="hidden-file" value="" >
+                            <input type="hidden" name="hidden-file" id="hidden-file" class="hidden-file" value="{{ $hiddenImages }}" >
                             <input type="hidden" name="hidden-images" id="hidden-images" class="hidden-images" value="{{ $hiddenImages }}" >
                             <div class="multisteps-form__panel pt-3 border-radius-xl bg-white js-active" data-animation="FadeIn">
                                 <h5 class="font-weight-bolder">Информация о блюде</h5>
@@ -89,7 +89,7 @@
                                                @if (is_array($files))
                                                @foreach ($files as $key => $item)
                                                     <div class="upload__img-box">
-                                                        <div style="background: url('{{ asset($item) }}'); height: 60px; background-size: cover; background-position: center;" alt="" data-number="{{ $key }}" data-file="{{ asset($item) }}" class="img-bg">
+                                                        <div style="background: url('{{ asset($item) }}'); height: 60px; background-size: cover; background-position: center;" alt="" data-number="{{ $key }}" data-file="{{ $item }}" class="img-bg">
                                                             <div class="upload__img-close">
                                                             </div>
                                                         </div>

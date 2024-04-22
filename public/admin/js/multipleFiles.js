@@ -9,6 +9,7 @@ jQuery(document).ready(function () {
 
     var imgArray = (hiddenImages.value == '') ? [] : JSON.parse(hiddenImages.value);
     var resNames = (hiddenImages.value == '') ? [] : JSON.parse(hiddenImages.value);
+    console.log(resNames)
     var origFiles = (origFiles.value == '') ? [] : JSON.parse(origFiles.value);
  
     $('.upload__inputfile').each(function () {
@@ -68,7 +69,6 @@ jQuery(document).ready(function () {
           hiddenImages.value = JSON.stringify(resNames);
           
           let fileImages = document.querySelector('.hidden-images');
-          console.log(fileImages)
           let fileImagesArr = JSON.parse(fileImages.value);
           fileImagesArr.splice(i, 1);
           fileImages.value = JSON.stringify(fileImagesArr);
