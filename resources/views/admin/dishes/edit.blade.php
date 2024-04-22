@@ -26,7 +26,7 @@
                         @csrf
                         @method('PUT')
                         <!-- hidden -->
-    
+                        <input type="hidden" name="hidden-file" class="hidden-file" value="" >
                             <div class="multisteps-form__panel pt-3 border-radius-xl bg-white js-active" data-animation="FadeIn">
                                 <h5 class="font-weight-bolder">Информация о блюде</h5>
                                 <div class="multisteps-form__content">
@@ -68,6 +68,35 @@
                                         <input type="file" name="img" id="file1" style="display: none;" accept="image/*">
                                         <img class="avatar avatar-sm me-3 border-radius-lg" id="image1" src="{{ asset($dish->img) }}" alt="">
                                     </div>
+
+                                    <div style="display: flex; gap: 10px; align-items: center;" class="mt-4">
+                                        <div class="upload__box">
+                                           <div class="upload__btn-box">
+                                               <label class="upload__btn btn bg-gradient-warning my-0">
+                                                   Загрузить фото
+                                               <input type="file" multiple data-max_length="20" class="upload__inputfile" id="fileInput" name="files[]" accept="image/*">
+                                               </label> 
+                                           </div>
+                                           @php
+                                              $files = unserialize($dish->files); 
+                                           @endphp
+                                           
+                                           <div class="upload__img-wrap">
+                                               @if (is_array($files))
+                                               @foreach ($files as $key => $item)
+                                                    <div class="upload__img-box">
+                                                        <div style="background: url('{{ asset('/storage/dishes/'.$item) }}'); height: 60px; background-size: cover; background-position: center;" alt="" data-number="{{ $key }}" data-file="{{ asset('/storage/dishes/'.$item) }}" class="img-bg">
+                                                            <div class="upload__img-close">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                               @endforeach
+                                               @endif
+                                           </div>
+                                       </div>       
+                                   </div>  
+
+
                                     <div class="button-row d-flex mt-0 mt-md-4">
                                         <button class="btn bg-gradient-light mb-0 js-btn-prev" type="button" title="Prev">Назад</button>
                                         <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="button" title="Next">Вперед</button>

@@ -42,6 +42,8 @@ class DishController extends Controller
         $data['spicy'] = $request->has('spicy') ? 1 : 0;
         $data['sort'] = $request->sort;
         $data['img'] = '/';
+        $files = json_decode($request->input('hidden-file'), true);
+        $data['files'] = serialize($files);
 
         if($request->hasFile('img')) {
             $imagePath = $request->file('img')->store('dishes', 'public');
@@ -101,9 +103,11 @@ class DishController extends Controller
         $paths = [];
         if ($request->hasFile('files')) {
             foreach ($request->file('files') as $image) {
-                $path = $image->store('images', 'public');
+                $path = $image->store('dishes', 'public');
                 $paths[] = Storage::url($path);
             }
         }
+
+        return response()->json(['paths' => $paths]);
     }
 }

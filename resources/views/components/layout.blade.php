@@ -99,33 +99,40 @@ if (key === 13) { // код клавиши Enter
 </script>
 
 <script>
+    // Загрузка файлов на сервер при изменение инпут файл
     fileInput.addEventListener('change', () => {
-        uploadFiles();
-    })
+    uploadFiles();
+})
 
-    function uploadFiles() {
-        var files = document.getElementById('fileInput').files;
-        var token = document.getElementById('store_dish').querySelector('input[name="_token"]').value;
-        var formData = new FormData();
+function uploadFiles() {
+    var files = document.getElementById('fileInput').files;
+    var token = document.getElementById('store_dish').querySelector('input[name="_token"]').value;
+    var formData = new FormData();
 
-        for (var i = 0; i < files.length; i++) {
-            formData.append('files[]', files[i]);
-            console.log(files[i])
-        }
-
-        formData.append('_token', token);
-
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', '/admin/dishes/images', true);
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                console.log('Files uploaded successfully.');
-            } else {
-                console.log('Error uploading files.');
-            }
-        };
-        xhr.send(formData);
+    for (var i = 0; i < files.length; i++) {
+        formData.append('files[]', files[i]);
     }
+
+    formData.append('_token', token);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/admin/dishes/images', true);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            if (response.paths) {
+                var currentPaths = document.getElementById('hidden-images').value ? JSON.parse(document.getElementById('hidden-images').value) : [];
+                var combinedPaths = currentPaths.concat(response.paths);
+                document.getElementById('hidden-images').value = JSON.stringify(combinedPaths);
+            } else {
+                console.log('Error: Paths not found in the response.');
+            }
+        } else {
+            console.log('Error uploading files.');
+        }
+    };
+    xhr.send(formData);
+}
 </script>
 
 </body>
