@@ -40,14 +40,14 @@
                                     
                                     <div class="element-icons-item">
                                         <div>
-                                            <img src="/assets/weight-23ea15a7.svg" alt="">
+                                            <img src="{{ asset('storage/images/weight.svg') }}" alt="">
                                         </div>
                                         <span class="amount">{{ $dish->amount }} {{ $dish->amountUnit->unit }}</span>
                                     </div>
                                     
                                     <div class="element-icons-item">
                                         <div>
-                                            <img src="/assets/weight-23ea15a7.svg" alt="">
+                                            <img src="{{ asset('storage/images/weight.svg') }}" alt="">
                                         </div>
                                         <span class="grams">{{ $dish->weight }} {{ $dish->weightUnit->unit }}</span>
                                     </div>
