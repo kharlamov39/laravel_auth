@@ -1,9 +1,9 @@
 
     <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-white" id="sidenav-main">
         <div class="sidenav-header">
-          <a class="navbar-brand m-0" href="" target="_blank">
-            <img src="/admin/assets/img/logo-ct.png" class="navbar-brand-img h-100" alt="main_logo">
-            <span class="ms-1 font-weight-bold text-dark">QRMENU</span>
+          <a class="navbar-brand m-0" href="{{ route('public.index') }}">
+            <img src="{{ asset('storage/images/logo.jpg') }}" class="navbar-brand-img h-100" alt="main_logo">
+            <span class="ms-1 font-weight-bold text-dark"></span>
           </a>
         </div>
         <hr class="horizontal light mt-0 mb-2">
