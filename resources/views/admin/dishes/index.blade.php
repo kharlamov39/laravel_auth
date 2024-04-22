@@ -74,7 +74,7 @@
                             @foreach ($dishes as $dish)
                                 <tr>
                                     <td>
-                                        <a href="" class="d-flex">
+                                        <a href="{{ route('admin.dishes.show', $dish->id) }}" class="d-flex">
                                         <img class="w-10 ms-3" src="{{ asset($dish->img) }}" alt="yohji">
                                         <h6 class="ms-3 my-auto">{{ $dish->name }}</h6>
                                         </a>
@@ -100,7 +100,7 @@
                                         {!! $dish->active ? '<span class="badge badge-sm bg-gradient-success">Активен</span>' : '<span class="badge badge-sm bg-gradient-secondary">Не активен</span>' !!}
                                     </td>
                                     <td class="text-sm">
-                                        <a href="" data-bs-toggle="tooltip" data-bs-original-title="Посмотреть">
+                                        <a href="{{ route('admin.dishes.show', $dish->id) }}" data-bs-toggle="tooltip" data-bs-original-title="Посмотреть">
                                         <i class="material-icons text-secondary position-relative text-lg">visibility</i>
                                         </a>
                                         <a href="{{ route('admin.dishes.edit', $dish->id) }}" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Редактировать">

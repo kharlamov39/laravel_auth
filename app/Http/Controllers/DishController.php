@@ -19,6 +19,12 @@ class DishController extends Controller
         return view('admin.dishes.index', ['dishes' => $dishes, 's' => $s, 'perPage' => $perPage]);
     }
 
+    public function show($id)
+    {
+        $dish = Dish::findOrFail($id);
+        return view('admin.dishes.show', ['dish' => $dish]);
+    }
+
     public function create()
     {
         $groups = Group::all();

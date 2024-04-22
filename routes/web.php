@@ -69,6 +69,7 @@ Route::prefix('/admin/groups')->middleware('auth')->group( function() {
 Route::prefix('/admin/dishes')->middleware('auth')->group( function() {
     Route::get('', [DishController::class, 'index'])->name('admin.dishes.index');
     Route::get('/create', [DishController::class, 'create'])->name('admin.dishes.create');
+    Route::get('/{id}', [DishController::class, 'show'])->name('admin.dishes.show');
     Route::post('/create', [DishController::class, 'store'])->name('admin.dishes.store');
     Route::delete('/{id}', [DishController::class, 'delete'])->name('admin.dishes.delete');
     Route::get('/edit/{id}', [DishController::class, 'edit'])->name('admin.dishes.edit');
