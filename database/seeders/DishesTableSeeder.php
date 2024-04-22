@@ -16,7 +16,7 @@ class DishesTableSeeder extends Seeder
         Dish::create([
             'name' => 'Блюдо',
             'description' => 'Вкусное блюдо',
-            'group_id' => 1,
+            'group_id' => 7,
             'img' => '/',
             'price' => '100.00',
             'weight' => '250',
@@ -32,7 +32,7 @@ class DishesTableSeeder extends Seeder
         Dish::create([
             'name' => 'Блюдо',
             'description' => 'Вкусное блюдо',
-            'group_id' => 2,
+            'group_id' => 8,
             'img' => '/',
             'price' => '100.00',
             'weight' => '250',
@@ -48,7 +48,7 @@ class DishesTableSeeder extends Seeder
         Dish::create([
             'name' => 'Блюдо',
             'description' => 'Вкусное блюдо',
-            'group_id' => 3,
+            'group_id' => 9,
             'img' => '/',
             'price' => '100.00',
             'weight' => '250',
@@ -64,7 +64,7 @@ class DishesTableSeeder extends Seeder
         Dish::create([
             'name' => 'Блюдо',
             'description' => 'Вкусное блюдо',
-            'group_id' => 1,
+            'group_id' => 7,
             'img' => '/',
             'price' => '100.00',
             'weight' => '250',
@@ -80,7 +80,7 @@ class DishesTableSeeder extends Seeder
         Dish::create([
             'name' => 'Блюдо',
             'description' => 'Вкусное блюдо',
-            'group_id' => 2,
+            'group_id' => 8,
             'img' => '/',
             'price' => '100.00',
             'weight' => '250',

@@ -26,8 +26,11 @@
                         @csrf
                         @method('PUT')
                         <!-- hidden -->
+                        @php
+                            $hiddenImages = json_encode(unserialize($dish->files));
+                        @endphp
                             <input type="hidden" name="hidden-file" id="hidden-file" class="hidden-file" value="" >
-                            <input type="hidden" name="hidden-images" id="hidden-images" class="hidden-images" value="" >
+                            <input type="hidden" name="hidden-images" id="hidden-images" class="hidden-images" value="{{ $hiddenImages }}" >
                             <div class="multisteps-form__panel pt-3 border-radius-xl bg-white js-active" data-animation="FadeIn">
                                 <h5 class="font-weight-bolder">Информация о блюде</h5>
                                 <div class="multisteps-form__content">
