@@ -15,4 +15,9 @@ class MenuController extends Controller
         return view('public.index', ['groups' => $groups] );
     }
 
+    public function basket()
+    {
+        return view('public.basket');
+    }
+
 }

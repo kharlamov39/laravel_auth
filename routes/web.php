@@ -30,6 +30,7 @@ use App\Http\Controllers\Public\MenuController;
 
 
 Route::get('/', [MenuController::class, 'index'])->name('public.index');
+Route::get('/basket', [MenuController::class, 'basket'])->name('public.basket');
 
 Route::prefix('/register')->middleware('guest')->group( function() {
     Route::get('', [RegisterController::class, 'index'])->name('register.index');
