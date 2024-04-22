@@ -42,7 +42,7 @@ class DishController extends Controller
         $data['spicy'] = $request->has('spicy') ? 1 : 0;
         $data['sort'] = $request->sort;
         $data['img'] = '/';
-        $files = json_decode($request->input('hidden-file'), true);
+        $files = json_decode($request->input('hidden-images'), true);
         $data['files'] = serialize($files);
 
         if($request->hasFile('img')) {
@@ -79,6 +79,8 @@ class DishController extends Controller
         $data['spicy'] = $request->has('spicy') ? 1 : 0;
         $data['sort'] = $request->sort;
         $data['img'] = '/';
+        $files = json_decode($request->input('hidden-images'), true);
+        $data['files'] = serialize($files);
 
         if($request->hasFile('img')) {
             $imagePath = $request->file('img')->store('dishes', 'public');

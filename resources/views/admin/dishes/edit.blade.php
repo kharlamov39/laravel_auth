@@ -85,7 +85,7 @@
                                                @if (is_array($files))
                                                @foreach ($files as $key => $item)
                                                     <div class="upload__img-box">
-                                                        <div style="background: url('{{ asset('/storage/dishes/'.$item) }}'); height: 60px; background-size: cover; background-position: center;" alt="" data-number="{{ $key }}" data-file="{{ asset('/storage/dishes/'.$item) }}" class="img-bg">
+                                                        <div style="background: url('{{ asset($item) }}'); height: 60px; background-size: cover; background-position: center;" alt="" data-number="{{ $key }}" data-file="{{ asset($item) }}" class="img-bg">
                                                             <div class="upload__img-close">
                                                             </div>
                                                         </div>
