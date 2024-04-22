@@ -1,4 +1,4 @@
-<x-layout>
+<x-admin.layout>
 
     <div class="container-fluid py-4">
         <div class="row">
@@ -137,4 +137,4 @@
     </div>
   </div>  
 
-</x-layout>
+</x-admin.layout>

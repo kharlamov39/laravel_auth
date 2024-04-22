@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Dish;
 
 class Group extends Model
 {
@@ -14,4 +15,9 @@ class Group extends Model
     protected $fillable = [
         'section', 'active','sort'
     ];
+
+    public function dishes()
+    {
+        return $this->hasMany(Dish::class);
+    }
 }

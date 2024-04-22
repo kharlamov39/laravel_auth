@@ -10,4 +10,9 @@ class Unit extends Model
     use HasFactory;
 
     protected $table = 'units';
+
+    public function dishes()
+    {
+        return $this->hasMany(Dish::class);
+    }
 }

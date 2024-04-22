@@ -1,4 +1,4 @@
-<x-layout>
+<x-admin.layout>
     <x-slot:title>
         Изменить категорию
     </x-slot>
@@ -35,4 +35,4 @@
         </div>
     </div>
 
-</x-layout>
+</x-admin.layout>

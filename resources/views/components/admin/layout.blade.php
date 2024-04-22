@@ -28,9 +28,9 @@
     </head>
     
 <body class="g-sidenav-show  bg-gray-200">
-    <x-header />
+    <x-admin.header />
         {{ $slot }}
-    <x-footer />
+    <x-admin.footer />
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>

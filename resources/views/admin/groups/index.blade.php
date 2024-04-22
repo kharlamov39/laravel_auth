@@ -1,4 +1,4 @@
-<x-layout>
+<x-admin.layout>
     <x-slot:title>
         Категории
     </x-slot>
@@ -100,4 +100,4 @@
   </div>
 </div>  
 
-</x-layout>
+</x-admin.layout>

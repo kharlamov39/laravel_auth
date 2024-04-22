@@ -11,8 +11,10 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 
-use App\Http\Controllers\GroupController;
-use App\Http\Controllers\DishController;
+use App\Http\Controllers\Admin\GroupController;
+use App\Http\Controllers\Admin\DishController;
+
+use App\Http\Controllers\Public\MenuController;
 
 
 /*
@@ -26,14 +28,8 @@ use App\Http\Controllers\DishController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
 
-Route::get('/admin', function () {
-    return view('admin');
-})->middleware(['auth', 'verified'])->name('admin');
-
+Route::get('/', [MenuController::class, 'index'])->name('public.index');
 
 Route::prefix('/register')->middleware('guest')->group( function() {
     Route::get('', [RegisterController::class, 'index'])->name('register.index');
