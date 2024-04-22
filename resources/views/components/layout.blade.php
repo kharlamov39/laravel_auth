@@ -122,6 +122,7 @@ function uploadFiles() {
             var response = JSON.parse(xhr.responseText);
             if (response.paths) {
                 var currentPaths = document.getElementById('hidden-images').value ? JSON.parse(document.getElementById('hidden-images').value) : [];
+                
                 var combinedPaths = currentPaths.concat(response.paths);
                 document.getElementById('hidden-images').value = JSON.stringify(combinedPaths);
             } else {

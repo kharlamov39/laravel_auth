@@ -72,13 +72,13 @@ class DishController extends Controller
             'description' => ['string'],
             'price' => ['required', 'numeric'],
             'sort' => ['required', 'numeric'],
+            'img' => ['image']
         ]);
 
         $data = $request->only(['name', 'description', 'price', 'weight', 'weight_unit_id', 'amount', 'amount_unit_id', 'group_id', 'sort']);
         $data['active'] = $request->has('active') ? 1 : 0;
         $data['spicy'] = $request->has('spicy') ? 1 : 0;
         $data['sort'] = $request->sort;
-        $data['img'] = '/';
         $files = json_decode($request->input('hidden-images'), true);
         $data['files'] = serialize($files);
 

@@ -22,11 +22,12 @@
                     </div>
     
                     <div class="card-body">
-                        <form class="multisteps-form__form dropzone" style="height: 391px;"  method="POST" action="{{ route('admin.dishes.update', $dish->id) }}" enctype="multipart/form-data">
+                        <form class="multisteps-form__form dropzone" id="store_dish" style="height: 391px;"  method="POST" action="{{ route('admin.dishes.update', $dish->id) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <!-- hidden -->
-                        <input type="hidden" name="hidden-file" class="hidden-file" value="" >
+                            <input type="hidden" name="hidden-file" id="hidden-file" class="hidden-file" value="" >
+                            <input type="hidden" name="hidden-images" id="hidden-images" class="hidden-images" value="" >
                             <div class="multisteps-form__panel pt-3 border-radius-xl bg-white js-active" data-animation="FadeIn">
                                 <h5 class="font-weight-bolder">Информация о блюде</h5>
                                 <div class="multisteps-form__content">
