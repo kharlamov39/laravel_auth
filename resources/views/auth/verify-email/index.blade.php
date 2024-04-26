@@ -1,4 +1,4 @@
-<x-layout>
+<x-admin.layout>
     <div>
         <h2>Подтверждение почты</h2>
         @if (session('message'))
@@ -15,4 +15,4 @@
 
         </form>
     </div>
-</x-layout>
+</x-admin.layout>

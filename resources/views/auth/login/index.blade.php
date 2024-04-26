@@ -1,4 +1,4 @@
-<x-layout>
+<x-admin.layout>
     <div>
         <h2>Вход</h2>
         <form method="POST" action="{{ route('login.store') }}">
@@ -40,4 +40,4 @@
             </div>
         </form>
     </div>
-</x-layout>
+</x-admin.layout>

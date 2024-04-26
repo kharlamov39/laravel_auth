@@ -1,4 +1,4 @@
-<x-layout>
+<x-admin.layout>
     <div>
         <h2>Восстановить пароль</h2>
 
@@ -23,4 +23,4 @@
         </form>
 
     </div>
-</x-layout>
+</x-admin.layout>

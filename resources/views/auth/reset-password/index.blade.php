@@ -1,4 +1,4 @@
-<x-layout>
+<x-admin.layout>
     <div>
         <h2>Новый пароль</h2>
         <form method="POST" action="{{ route('password.reset.store') }}">
@@ -39,4 +39,4 @@
 
         </form>
     </div>
-</x-layout>
+</x-admin.layout>

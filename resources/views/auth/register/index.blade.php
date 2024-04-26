@@ -1,4 +1,4 @@
-<x-layout>
+<x-admin.layout>
     <div>
         <h2>Регистрация</h2>
         <form method="POST" action="{{ route('register.store') }}">
@@ -42,4 +42,4 @@
             </div>
         @endif
     </div>
-</x-layout>
+</x-admin.layout>
